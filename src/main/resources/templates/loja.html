@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Loja Belleza intima</title>
+<style>
+        body {
+            background: linear-gradient(135deg, #ff7f7f, #a85ebd);
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #f0c14b;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+	<div th:insert="~{layout/menu}"></div>
+	<div th:insert="~{layout/cabecalho}"></div>
+	
+	<form name="salvar_usuario" class="form-horizontal" method="POST" th:action="@{/salvar_usuario}" th:object="${usuarioEntity}">
+
+	<div class="login-container">
+	        <h2>Login</h2>
+	        <input type="email" placeholder="Email" required>
+	        <input type="password" placeholder="Senha" required>
+	        <button type="submit">Entrar</button>
+	        <p><a href="#" style="color: white;">Esqueci a senha</a></p>
+	    </div>		
+
+</body>
+</html>
