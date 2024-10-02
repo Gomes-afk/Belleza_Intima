@@ -33,7 +33,7 @@ public class UsuarioController {
 	@PostMapping("/salvar_usuario")
 	public ModelAndView save (
 			ModelMap model,
-			@ModelAttribute("docenteEntity") UsuarioEntity usuarioEntity,
+			@ModelAttribute("usuarioEntity") UsuarioEntity usuarioEntity,
 			RedirectAttributes atributes)  throws Exception
 	{
 		System.out.println("Nome :" + usuarioEntity.getNome());
