@@ -38,16 +38,17 @@
     </style>
 </head>
 <body>
-	<div th:insert="~{layout/menu}"></div>
-	<div th:insert="~{layout/cabecalho}"></div>
+	
 	
 	<form name="salvar_usuario" class="form-horizontal" method="POST" th:action="@{/salvar_usuario}" th:object="${usuarioEntity}">
 
 	<div class="login-container">
 	        <h2>Login</h2>
-	        <input type="email" placeholder="Email" required>
-	        <input type="password" placeholder="Senha" required>
-	        <button type="submit">Entrar</button>
+	         <input type="name" placeholder="nome" id="nome" name="nome" required>
+	          <input type="tel" placeholder="telefone" id="telefone" name="telefone" required maxlength="11">
+	        <input type="email" placeholder="Email" id="email" name="email" required>
+	        <input type="password" placeholder="Senha"id="senha" name="senha" required>
+	        <button type="submit">Salvar</button>
 	        <p><a href="#" style="color: white;">Esqueci a senha</a></p>
 	    </div>		
 
