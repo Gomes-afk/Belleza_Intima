@@ -25,10 +25,11 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	@GetMapping("/loja")
-	public String usuario() 
+	@GetMapping("/cadastro")
+	public String usuario(ModelMap model) 
 	{
-		return "loja";
+		model.addAttribute("cadastrados",usuarioRepository.findAll()); //caminho real do arquivo
+		return "cadastro";
 	}
 	
 	
@@ -43,14 +44,14 @@ public class UsuarioController {
 		System.out.println("Telefone :" + usuarioEntity.getTelefone());
 		System.out.println("Email :" + usuarioEntity.getEmail());
 		
-	ModelAndView mv = new ModelAndView("redirect:/loja");
+	ModelAndView mv = new ModelAndView("redirect:/cadastro");
 	usuarioRepository.save(usuarioEntity);
 	/*atributes.addFlashAttribute("mensagem", docenteService.save(docenteEntity));
 	*/
 	return mv;
 	
 	}
-	@GetMapping("/excluir_usuario/{idUsuario}")
+/*	@GetMapping("/excluir_usuario/{idUsuario}")
 	public ModelAndView delete (ModelMap model, @PathVariable("idUsuario") Long idUsuario,RedirectAttributes atributes) throws Exception
 {
 	ModelAndView mv = new ModelAndView("usuario");
@@ -64,5 +65,5 @@ public class UsuarioController {
 	}
 	return mv;
 	
-}
+}*/
 }
