@@ -7,5 +7,7 @@ import br.com.belleza_intima.entity.UsuarioEntity;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Long> {
+	
+	UsuarioEntity getOneByCpf(String cpf);
 
 }

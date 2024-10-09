@@ -1,8 +1,10 @@
--- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `belleza_intima` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `belleza_intima`;
+-- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: localhost    Database: belleza_intima
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.39
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -217,12 +219,10 @@ CREATE TABLE `usuario` (
   `email` varchar(45) NOT NULL,
   `telefone` varchar(13) NOT NULL,
   `nome` varchar(45) NOT NULL,
-  `endereco` varchar(45) NOT NULL,
+  `endereco` varchar(45) DEFAULT NULL,
   `senha` varchar(16) NOT NULL,
-  PRIMARY KEY (`id_usuario`),
-  UNIQUE KEY `email_UNIQUE` (`email`),
-  UNIQUE KEY `telefone_UNIQUE` (`telefone`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,6 +231,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'oyuregomes@gmail.com','21972466986','Yure',NULL,'123456789'),(2,'yureoliveiragomes@gmail.com','21972466986','Yure',NULL,'1548156156'),(3,'teste@teste.teste','21981512415','teste',NULL,'12345678'),(4,'oyuregomes@gmail.com','12121212124','Yure',NULL,'22552645236'),(5,'oyuregomes@gmail.com','21981512415','Yure',NULL,'123456789'),(6,'yureg833@gmail.com','21981512415','teste',NULL,'123456789');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,4 +270,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-20 20:28:14
+-- Dump completed on 2024-10-04 15:13:41
