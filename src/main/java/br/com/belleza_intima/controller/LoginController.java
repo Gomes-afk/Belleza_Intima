@@ -13,6 +13,13 @@ public class LoginController {
 	
 	}
 
+	@GetMapping("/") //nome que eu quiser colocar
+	public String home()
+	{
+		return "belleza"; //caminho real do arquivo
+	
+	}
+
 
 }
 

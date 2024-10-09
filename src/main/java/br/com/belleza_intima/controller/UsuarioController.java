@@ -43,6 +43,7 @@ public class UsuarioController {
 		System.out.println("Senha :" + usuarioEntity.getSenha());
 		System.out.println("Telefone :" + usuarioEntity.getTelefone());
 		System.out.println("Email :" + usuarioEntity.getEmail());
+		System.out.println("Cpf :" + usuarioEntity.getCpf());
 		
 	ModelAndView mv = new ModelAndView("redirect:/cadastro");
 	usuarioRepository.save(usuarioEntity);

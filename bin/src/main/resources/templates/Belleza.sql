@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `belleza_intima` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `belleza_intima`;
--- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
 --
 -- Host: localhost    Database: belleza_intima
 -- ------------------------------------------------------
--- Server version	8.0.39
+-- Server version	8.0.33
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -140,7 +140,7 @@ CREATE TABLE `permissao` (
   `id_permissao` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   PRIMARY KEY (`id_permissao`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,6 +149,7 @@ CREATE TABLE `permissao` (
 
 LOCK TABLES `permissao` WRITE;
 /*!40000 ALTER TABLE `permissao` DISABLE KEYS */;
+INSERT INTO `permissao` VALUES (1,'administrador'),(2,'cliente');
 /*!40000 ALTER TABLE `permissao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -220,9 +221,12 @@ CREATE TABLE `usuario` (
   `telefone` varchar(13) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `endereco` varchar(45) DEFAULT NULL,
-  `senha` varchar(16) NOT NULL,
-  PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `senha` varchar(255) NOT NULL,
+  `cpf` varchar(11) NOT NULL,
+  `data_expiracao` date DEFAULT NULL,
+  PRIMARY KEY (`id_usuario`),
+  UNIQUE KEY `cpf_UNIQUE` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +235,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'oyuregomes@gmail.com','21972466986','Yure',NULL,'123456789'),(2,'yureoliveiragomes@gmail.com','21972466986','Yure',NULL,'1548156156'),(3,'teste@teste.teste','21981512415','teste',NULL,'12345678'),(4,'oyuregomes@gmail.com','12121212124','Yure',NULL,'22552645236'),(5,'oyuregomes@gmail.com','21981512415','Yure',NULL,'123456789'),(6,'yureg833@gmail.com','21981512415','teste',NULL,'123456789');
+INSERT INTO `usuario` VALUES (7,'teste@teste.com','21','Teste Administrador','adwadsadwdads','$2a$10$GXBkJmPPE/Pbb/zUO3ov3ejJcWr3w/nsjNZbhdwRV1bF/z3KJ96Du','77777777777',NULL),(8,'professor@teste.com','21','Professor Codernador','dwsasdawdsadfwefva','$2a$10$GXBkJmPPE/Pbb/zUO3ov3ejJcWr3w/nsjNZbhdwRV1bF/z3KJ96Du','88888888888',NULL);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,12 +247,12 @@ DROP TABLE IF EXISTS `usuario_permissao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario_permissao` (
-  `id_usuario` bigint NOT NULL,
-  `id_permissao` bigint NOT NULL,
-  PRIMARY KEY (`id_usuario`,`id_permissao`),
-  KEY `fk_permissao_usuario_permissao_idx` (`id_permissao`),
-  CONSTRAINT `fk_permissao_usuario_permissao` FOREIGN KEY (`id_permissao`) REFERENCES `permissao` (`id_permissao`),
-  CONSTRAINT `fk_usuario_permissao_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+  `usuario_id_usuario` bigint NOT NULL,
+  `permissao_id_permissao` bigint NOT NULL,
+  PRIMARY KEY (`usuario_id_usuario`,`permissao_id_permissao`),
+  KEY `fk_permissao_usuario_permissao_idx` (`permissao_id_permissao`),
+  CONSTRAINT `fk_usuario_permissao_permissao` FOREIGN KEY (`permissao_id_permissao`) REFERENCES `permissao` (`id_permissao`),
+  CONSTRAINT `fk_usuario_permissao_usuario` FOREIGN KEY (`usuario_id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -258,6 +262,7 @@ CREATE TABLE `usuario_permissao` (
 
 LOCK TABLES `usuario_permissao` WRITE;
 /*!40000 ALTER TABLE `usuario_permissao` DISABLE KEYS */;
+INSERT INTO `usuario_permissao` VALUES (7,1),(8,2);
 /*!40000 ALTER TABLE `usuario_permissao` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -270,4 +275,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-04 15:13:41
+-- Dump completed on 2024-10-08 21:31:56

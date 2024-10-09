@@ -28,14 +28,14 @@ public class SecSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	 
 	    http.authorizeHttpRequests(
-	            auth -> auth.requestMatchers("/signin", "/signup").permitAll()
-	            .requestMatchers("/").hasAnyRole("administrador")		         
+	            auth -> auth.requestMatchers("/signin", "/signup","/login","/cadastro","/produto","/","/img/**").permitAll()
+	            .requestMatchers("/pedido").hasAnyAuthority("administrador","cliente")		         
 	            .requestMatchers("/admin/**").hasRole("administrador")	
 	
 	            .anyRequest().authenticated()
 	           )
 	            .formLogin(formLogin -> formLogin	            		
-	                    .defaultSuccessUrl("/principal", true)
+	                    .defaultSuccessUrl("/produto", true)
 	                    .permitAll()
 	            )
 	            .rememberMe(rememberMe -> rememberMe.key("AbcdEfghIjkl..."))
