@@ -40,7 +40,8 @@ public class SecSecurityConfig {
 	            )
 	            .rememberMe(rememberMe -> rememberMe.key("AbcdEfghIjkl..."))
 	            .logout(logout -> logout.logoutUrl("/signout").permitAll());
-	 
+	    
+
 	 
 	    return http.build();
 	}
@@ -58,3 +59,4 @@ public class SecSecurityConfig {
 	}
 
 }
+
