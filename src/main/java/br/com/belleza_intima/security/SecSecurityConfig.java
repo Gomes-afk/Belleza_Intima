@@ -28,10 +28,9 @@ public class SecSecurityConfig {
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	 
 	    http.authorizeHttpRequests(
-	            auth -> auth.requestMatchers("/signin", "/signup","/login","/cadastro","/produto","/","/img/**").permitAll()
-	            .requestMatchers("/pedido").hasAnyAuthority("administrador","cliente")		         
-	            .requestMatchers("/admin/**").hasRole("administrador")	
-	
+	            auth -> auth
+	            .requestMatchers("/login","/produto","/").permitAll()
+	            .requestMatchers("/pedido").hasAnyAuthority("administrador","cliente")	         
 	            .anyRequest().authenticated()
 	           )
 	            .formLogin(formLogin -> formLogin	            		

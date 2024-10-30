@@ -52,19 +52,19 @@ public class UsuarioController {
 	return mv;
 	
 	}
-/*	@GetMapping("/excluir_usuario/{idUsuario}")
-	public ModelAndView delete (ModelMap model, @PathVariable("idUsuario") Long idUsuario,RedirectAttributes atributes) throws Exception
+	@GetMapping("/excluir_usuario/{id}")
+	public ModelAndView delete (ModelMap model, @PathVariable("id") Long idUsuario,RedirectAttributes atributes) throws Exception
 {
-	ModelAndView mv = new ModelAndView("usuario");
+	ModelAndView mv = new ModelAndView("cadastro");
 	try {
 		usuarioRepository.deleteById(idUsuario);
 		model.addAttribute("mensagem", "Usuario excluído com sucesso.");
-		model.addAttribute("docentes",usuarioRepository.findAll());
+		model.addAttribute("cadastrados",usuarioRepository.findAll());
 	} 
 	catch (Exception e) {
 		throw new Exception(e.getMessage());
 	}
 	return mv;
 	
-}*/
+}
 }
