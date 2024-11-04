@@ -82,7 +82,7 @@
 					   <td th:text="${usuario.email}"></td>
 					   <td th:text="${usuario.senha}"></td> 
 					    <td><a class="btn btn-sm btn-danger" th:href="@{excluir_usuario/{id}(id=${usuario.Id_usuario})}" >Excluir</a></td> 
-					    <td><a class="btn btn-sm btn-warning" th:href="@{usuario/{id}(id=${usuario.Id_usuario})}" >Alterar</a></td> 
+					    <td><a class="btn btn-sm btn-warning" th:href="@{alterar_usuario/{id}(id=${usuario.Id_usuario})}" >Alterar</a></td> 
 				   </tr>
 			   </tbody>
 	</table>

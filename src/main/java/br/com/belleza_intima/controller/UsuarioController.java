@@ -1,6 +1,9 @@
 package br.com.belleza_intima.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.ObjectToStringHttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.ui.ModelMapExtensionsKt;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -67,4 +72,13 @@ public class UsuarioController {
 	return mv;
 	
 }
+	@PutMapping("/alterar_usuario/{id}")
+	public ResponseEntity<UsuarioEntity> updateUsuarioEntity(@PathVariable ("id") Long idUsuario, @RequestBody UsuarioEntity novoUsuario) {
+	    // Sua lógica de atualização aqui
+	    
+	    // Se a atualização for bem-sucedida:
+	    return ResponseEntity.ok(novoUsuario); // Retorna um status 200 com o objeto atualizado
+	}
+
+
 }
