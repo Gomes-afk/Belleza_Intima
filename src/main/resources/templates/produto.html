@@ -5,15 +5,136 @@
 <title>Loja Belleza intima</title>
 </head>
 <body >
- <header>
-        <h2 class="logo">Belleza íntima</h2>
-        <nav class="navigation">
-			 <a href="/produto">Produtos</a>
-			  <a href="/pedido">Pedidos</a>
-            <button class="btnLogin-popup"><a href="/login">login</a></button>
-             <a href="/cadastro">Cadastro</a>
-        </nav>
-    </header>
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/produto"><h4>Beleza intima</h4></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="/produto" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Produtos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/produto">Roupas</a></li>
+                  <li><a class="dropdown-item" href="/produto">Langerie</a></li>
+                  <li><a class="dropdown-item" href="/produto">Calcinhas</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="/produto"></a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      
+      
+        <section class="home" id="home">
+        <div class="home-text container">
+            <h2 class="home-title">Produtos</h2><br>
+            <h4>Seu lugar onde sua beleza importa.</h4>
+        </div>
+    </section>
+
+    <section class="post container">
+
+        <div class="post-box lingerie">
+            <img src="/src/main/resources/static/img/langerire.jpg" alt="" class="lingerie-img">
+            <h2 class="category">lingerie</h2>
+            <p class="post-description"><h4>DESCRIÇÃO:
+                Conjunto de lingerie de tule importado. Modelo sem bojo, possui aro no peito.</h4> 
+                <p>Preço: R$ 100,00</p>
+                <button class="comprar">Comprar</button>
+        </div>
+
+    <div class="post-box cereja">
+        <img src="/src/main/resources/static/img/calcinha cereja.jpg" alt="" class="calcinhacareja-img">
+        <h2 class="category">Calcinha cereja</h2>
+        <p class="post-description"><h4>DESCRIÇÃO:
+            Calcinha com detalhes em renda, regulável.</h4></p>
+            <p>Preço: R$ 100,00</p>
+            <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="post-box amor">
+        <img src="/src/main/resources/static/img/calcinha coração.jpg" alt="" class="calcinhaamor-img">
+        <h2 class="category">Calcinha-amor</h2>
+        <p class="post-description"><h4>DESCRIÇÃO:
+            Calcinha com tule em formato coração, cavada e fio duplo atrás.</h4>
+            <p>Preço: R$ 100,00</p>
+            <button class="comprar">Comprar</button>
+        </p>
+    </div>
+
+    <div class="post-box ">
+        <img src="/src/main/resources/static/img/Boronesa.jpg" alt="" class="Boronesa-img">
+        <h2 class="category">Boronesa</h2>
+        <p class="post-description"><h4>DESCRIÇÃO:
+            Conjunto sem bojo com detalhes em renda.</h4></p>
+            <p>Preço: R$ 100,00</p>
+            <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="post-box ">
+        <img src="/src/main/resources/static/img/lingerie2.jpg" alt="" class="lingerie2-img">
+        <h2 class="category">lingerie</h2>
+        <p class="post-description"><h4>DESCRIÇÃO:
+            Conjunto sem bojo com detalhes em renda.</h4></p>
+            <p>Preço: R$ 100,00</p>
+            <button class="comprar">Comprar</button>
+    </div>
+
+    <div class="post-box ">
+        <img src="/src/main/resources/static/img/lingerie3.jpg" alt="" class="lingerie3-img">
+        <h2 class="category">lingerie</h2>
+        <p class="post-description"><h4>DESCRIÇÃO:
+            Conjunto sem bojo com detalhes em renda.</h4></p>
+            <p>Preço: R$ 100,00</p>
+            <button class="comprar">Comprar</button>
+    </div>
+</section>
+
+<div class="modal" id="modal">
+    <div class="modal-conteudo">
+        <span class="fechar" id="fechar">&times;</span>
+        <img id="imagem-modal" src="" alt="">
+        <p id="descricao-modal">Descrição do produto</p>
+        <button id="adicionar-carrinho">Adicionar ao Carrinho</button>
+    </div>
+</div>
+
+<div class="carrinho" id="carrinho">
+    <div class="carrinho-conteudo">
+        <span class="fechar" id="fechar-carrinho">&times;</span>
+        <img id="imagem-carrinho" src="" alt="">
+        <button id="finalizar-compra">Finalizar Compra</button>
+    </div>
+</div>
+
+<div class="footer-container">
+    <p>&#169; Alexandra | Dani | Yuri Rocha | Yure Gomes. All Right Reserved</p>
+</div>
+
+
+
+<script src="/src/main/resources/static/js/estiloproduto.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfktSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
     
     
 </body>

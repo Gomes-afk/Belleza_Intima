@@ -29,13 +29,13 @@ public class SecSecurityConfig {
 	 
 	    http.authorizeHttpRequests(
 	            auth -> auth
-	            .requestMatchers("/login","/produto","/").permitAll()
+	            .requestMatchers("/login", "/produto", "/cadastro",  "/", "/css/**", "/js/**", "/img/**").permitAll()
 	            .requestMatchers("/pedido").hasAnyAuthority("administrador","cliente")	         
 	            .anyRequest().authenticated()
 	           )
 	            .formLogin(formLogin -> formLogin	            		
 	                    .defaultSuccessUrl("/produto", true)
-	                    .loginPage("/login")
+	                    //.loginPage("/login")
 	                    .permitAll()
 	            )
 	            .rememberMe(rememberMe -> rememberMe.key("AbcdEfghIjkl..."))
