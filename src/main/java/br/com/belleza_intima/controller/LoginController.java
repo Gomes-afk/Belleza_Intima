@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
 	@GetMapping("/login") //nome que eu quiser colocar
-	public String principal()
+	public String login()
 	{
-		return "principal"; //caminho real do arquivo
+		return "login"; //caminho real do arquivo
 	
 	}
 

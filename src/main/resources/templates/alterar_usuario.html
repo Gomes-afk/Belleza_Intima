@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<html>
+	
+<head th:insert="~{layout/cabecalho}">
+<title>Loja Belleza intima</title>
+
+</head>
+<body>
+	<header>
+        <h2 class="logo">Belleza íntima</h2>
+        <nav class="navigation">
+			 <a href="/produto">Produtos</a>
+			  <a href="/pedido">Pedidos</a>
+            <button class="btnLogin-popup"><a href="/login">login</a></button>
+             <a href="/cadastro">Cadastro</a>
+        </nav>
+    </header>
+	<h1>Belleza Intima</h1>
+
+<form name="alterar_usuario" class="form-horizontal" method="POST" th:action="@{/alterar_usuario}" th:object="${usuarioEntity}">
+
+	<div class="login-container">
+	        <h2>Alteração</h2>
+	        
+	        	<input class="form-control" type="hidden" maxlength="50" name="id_usuario" th:value="${id}" />
+			
+			<div class="mb-3">
+				<label for="nome" class="form-label">Nome</label>
+				<input type="text" class="form-control" id="nome" name="nome" th:value=${usuario.Nome} required>
+			</div>
+			
+			<div class="mb-3">
+							<label for="nome" class="form-label">Senha</label>
+							<input type="text" class="form-control" id="senha" name="senha" required>
+						</div>
+			
+			<div class="mb-3">
+				<label for="nome" class="form-label">Telefone</label>
+				<input type="text" class="form-control" id="telefone" name="telefone" th:value=${usuario.telefone} required maxlength="11">
+			</div>
+			
+			<div class="mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" class="form-control" id="email" name="email" placeholder="arrozcomfeijão@gmail.com" th:value=${usuario.email} required>
+			</div>
+			
+			<div class="mb-3">
+				<label for="nome" class="form-label">Cpf</label>
+				<input type="text" class="form-control" id="cpf" name="cpf" th:value=${usuario.cpf} required maxlength="11">
+			</div>
+			
+			
+						
+			<div class="mb-3">
+				<button type="submit" class="btn btn-success form-control">Alterar</button>
+			</div>
+
+</form>    
+
+</body>
+</html>

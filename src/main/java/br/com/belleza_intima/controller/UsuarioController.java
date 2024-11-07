@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.ObjectToStringHttpMessageConverter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.ui.ModelMapExtensionsKt;
@@ -44,6 +45,7 @@ public class UsuarioController {
 			@ModelAttribute("usuarioEntity") UsuarioEntity usuarioEntity,
 			RedirectAttributes atributes)  throws Exception
 	{
+		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
 		System.out.println("Nome :" + usuarioEntity.getNome());
 		System.out.println("Senha :" + usuarioEntity.getSenha());
 		System.out.println("Telefone :" + usuarioEntity.getTelefone());
@@ -72,13 +74,32 @@ public class UsuarioController {
 	return mv;
 	
 }
-	@PutMapping("/alterar_usuario/{id}")
-	public ResponseEntity<UsuarioEntity> updateUsuarioEntity(@PathVariable ("id") Long idUsuario, @RequestBody UsuarioEntity novoUsuario) {
-	    // Sua lógica de atualização aqui
-	    
-	    // Se a atualização for bem-sucedida:
-	    return ResponseEntity.ok(novoUsuario); // Retorna um status 200 com o objeto atualizado
+	@GetMapping("/alterar_usuario/{id}")
+	public ModelAndView consultarUsuario(ModelMap model,@PathVariable("id") Long idUsuario)
+	{
+		ModelAndView mv = new ModelAndView("alterar_usuario");
+		model.addAttribute("id",idUsuario);		
+		model.addAttribute("usuario",usuarioRepository.findById(idUsuario).get());
+		
+		
+		return mv;
 	}
+	
+	@PostMapping("/alterar_usuario")
+	public String alterarusuario(ModelMap model,UsuarioEntity usuarioModel,RedirectAttributes atributes)
+	{
+		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
+		UsuarioEntity s = new UsuarioEntity();
+		s = usuarioRepository.findById(usuarioModel.getId_usuario()).get();
+		s.setNome(usuarioModel.getNome());
+		s.setSenha(b.encode(usuarioModel.getSenha()));
+		s.setTelefone(usuarioModel.getTelefone());
+		s.setEmail(usuarioModel.getEmail());
+		s.setCpf(usuarioModel.getCpf());
 
-
+		usuarioRepository.saveAndFlush(s);
+		atributes.addFlashAttribute("mensagem", "Usuário alterado com sucesso.");
+		
+		return "redirect:cadastro";
+	}
 }

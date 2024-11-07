@@ -35,6 +35,7 @@ public class SecSecurityConfig {
 	           )
 	            .formLogin(formLogin -> formLogin	            		
 	                    .defaultSuccessUrl("/produto", true)
+	                    .loginPage("/login")
 	                    .permitAll()
 	            )
 	            .rememberMe(rememberMe -> rememberMe.key("AbcdEfghIjkl..."))
