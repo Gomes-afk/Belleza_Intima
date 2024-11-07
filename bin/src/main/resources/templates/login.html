@@ -5,9 +5,9 @@
 <title>Loja Belleza intima</title>
 </head>
 <body >
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/produto"><h4>Belleza íntima</h4></a>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid"> 
+          <a class="navbar-brand" href="/produto"><h4>Beleza íntima</h4></a> 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -16,7 +16,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
               </li>
-               <li class="nav-item">
+              <li class="nav-item">
                 <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
               </li>
               <li class="nav-item">
@@ -26,12 +26,26 @@
                 <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Pesquise seu pedido aqui" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-            </form>
           </div>
         </div>
       </nav>
+      
+      
+	<h1>Login</h1>
+  <form name="login" class="form-horizontal" method="POST" th:action="@{/login}">
+      <table>
+         <tr>
+            <td>User:</td>
+            <td><input type='text' name='username' value=''></td>
+         </tr>
+         <tr>
+            <td>Password:</td>
+            <td><input type='password' name='password' /></td>
+         </tr>
+         <tr>
+            <td><input name="submit" type="submit" value="submit" /></td>
+         </tr>
+      </table>
+  </form>
 </body>
 </html>
