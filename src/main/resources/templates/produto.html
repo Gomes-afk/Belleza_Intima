@@ -16,17 +16,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/produto" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Produtos
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/produto">Roupas</a></li>
-                  <li><a class="dropdown-item" href="/produto">Langerie</a></li>
-                  <li><a class="dropdown-item" href="/produto">Calcinhas</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/produto"></a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
@@ -36,7 +27,7 @@
               </li>
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control me-2" type="search" placeholder="Pesquise produtos aqui" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Pesquisar</button>
             </form>
           </div>
@@ -109,33 +100,8 @@
     </div>
 </section>
 
-<div class="modal" id="modal">
-    <div class="modal-conteudo">
-        <span class="fechar" id="fechar">&times;</span>
-        <img id="imagem-modal" src="" alt="">
-        <p id="descricao-modal">Descrição do produto</p>
-        <button id="adicionar-carrinho">Adicionar ao Carrinho</button>
-    </div>
-</div>
-
-<div class="carrinho" id="carrinho">
-    <div class="carrinho-conteudo">
-        <span class="fechar" id="fechar-carrinho">&times;</span>
-        <img id="imagem-carrinho" src="" alt="">
-        <button id="finalizar-compra">Finalizar Compra</button>
-    </div>
-</div>
-
-<div class="footer-container">
-    <p>&#169; Alexandra | Dani | Yuri Rocha | Yure Gomes. All Right Reserved</p>
-</div>
-
-
-
 <script src="/src/main/resources/static/js/estiloproduto.js"
 integrity="sha256-H+K7U5CnXl1h5ywQfktSj8PCmoN9aaq30gDh27Xc0jk="
 crossorigin="anonymous"></script>
-    
-    
 </body>
 </html>

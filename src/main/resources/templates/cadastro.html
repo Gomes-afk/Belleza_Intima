@@ -11,7 +11,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/produto"><h4>Beleza intima</h4></a>
+          <a class="navbar-brand" href="/produto"><h4>Beleza íntima</h4></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -20,17 +20,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/produto" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Produtos
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/produto">Roupas</a></li>
-                  <li><a class="dropdown-item" href="/produto">Langerie</a></li>
-                  <li><a class="dropdown-item" href="/produto">Calcinhas</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="/produto"></a></li>
-                </ul>
+               <li class="nav-item">
+                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
@@ -39,10 +30,6 @@
                 <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -58,9 +45,9 @@
 			</div>
 			
 			<div class="mb-3">
-							<label for="nome" class="form-label">Senha</label>
-							<input type="text" class="form-control" id="senha" name="senha" required>
-						</div>
+			    <label for="nome" class="form-label">Senha</label>
+			    <input type="text" class="form-control" id="senha" name="senha" required>
+			</div>
 			
 			<div class="mb-3">
 				<label for="nome" class="form-label">Telefone</label>
@@ -77,11 +64,9 @@
 				<input type="text" class="form-control" id="cpf" name="cpf" required maxlength="11">
 			</div>
 			
-			
-						
-			<div class="mb-3">
-				<button type="submit" class="btn btn-success form-control">Salvar</button>
-			</div>
+			<div class="d-grid gap-2 col-6 mx-auto">
+                  <button class="btn btn-success" type="submit">Salvar</button>
+            </div>
 
 </form>    
 
