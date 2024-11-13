@@ -48,9 +48,11 @@ public class UsuarioController {
 		BCryptPasswordEncoder b = new BCryptPasswordEncoder();
 		System.out.println("Nome :" + usuarioEntity.getNome());
 		System.out.println("Senha :" + usuarioEntity.getSenha());
+		usuarioEntity.setSenha(b.encode(usuarioEntity.getSenha()));
 		System.out.println("Telefone :" + usuarioEntity.getTelefone());
 		System.out.println("Email :" + usuarioEntity.getEmail());
 		System.out.println("Cpf :" + usuarioEntity.getCpf());
+		
 		
 	ModelAndView mv = new ModelAndView("redirect:/cadastro");
 	usuarioRepository.save(usuarioEntity);

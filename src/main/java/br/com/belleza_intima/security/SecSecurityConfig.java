@@ -29,7 +29,7 @@ public class SecSecurityConfig {
 	 
 	    http.authorizeHttpRequests(
 	            auth -> auth
-	            .requestMatchers("/login", "/produto", "/", "/css/**", "/js/**", "/img/**").permitAll()
+	            .requestMatchers("/login", "/cadastro", "/produto", "/", "/css/**", "/js/**", "/img/**").permitAll()
 	            .requestMatchers("/pedido").hasAnyAuthority("administrador","cliente")	         
 	            .anyRequest().authenticated()
 	           )
