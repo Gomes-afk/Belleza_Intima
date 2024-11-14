@@ -30,7 +30,8 @@ public class SecSecurityConfig {
 	    http.authorizeHttpRequests(
 	            auth -> auth
 	            .requestMatchers("/login", "/cadastro", "/produto", "/", "/css/**", "/js/**", "/img/**").permitAll()
-	            .requestMatchers("/pedido").hasAnyAuthority("administrador","cliente")	         
+	            .requestMatchers("/pedido","/perfil").hasAnyAuthority("administrador","cliente")
+	            .requestMatchers("/cadastroadm").hasAnyAuthority("administrador")
 	            .anyRequest().authenticated()
 	           )
 	            .formLogin(formLogin -> formLogin	            		

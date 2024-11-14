@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMapExtensionsKt;
 import br.com.belleza_intima.entity.UsuarioEntity;
 import br.com.belleza_intima.repository.UsuarioRepository;
 import ch.qos.logback.core.model.Model;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,6 +38,20 @@ public class UsuarioController {
 		model.addAttribute("cadastrados",usuarioRepository.findAll()); //caminho real do arquivo
 		return "cadastro";
 	}
+	@GetMapping("/cadastroadm")
+	public String cadastroadm(ModelMap model) 
+	{
+		model.addAttribute("cadastrados",usuarioRepository.findAll()); //caminho real do arquivo
+		return "cadastroadm";
+	}
+	@GetMapping("/perfil")
+	public String perfil(ModelMap model,HttpSession session) 
+	{
+		String login = (String)session.getAttribute("login");
+		System.out.println("login"+login);
+		model.addAttribute("cadastrados",usuarioRepository.getOneByCpf(login)); //caminho real do arquivo
+		return "perfil";
+	}
 	
 	
 	@PostMapping("/salvar_usuario")
@@ -53,7 +68,7 @@ public class UsuarioController {
 		System.out.println("Email :" + usuarioEntity.getEmail());
 		System.out.println("Cpf :" + usuarioEntity.getCpf());
 		
-		
+	
 	ModelAndView mv = new ModelAndView("redirect:/cadastro");
 	usuarioRepository.save(usuarioEntity);
 	/*atributes.addFlashAttribute("mensagem", docenteService.save(docenteEntity));

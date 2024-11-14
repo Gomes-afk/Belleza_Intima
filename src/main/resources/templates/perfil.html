@@ -99,5 +99,35 @@ button:hover {
 
 </form>    
 
+
+<br>
+<h5 class="card-title">Usuarios Cadastrados</h5>
+   <table class="table table-sm table-striped table-hover table-bordered">
+		       <thead>
+				     <tr>
+						  <th>ID</th>
+						  <th>NOME</th>
+						  <th>TELEFONE</th>
+						  <th>EMAIL</th>
+						   <th>CPF</th>
+					 </tr>
+					 
+			   </thead>
+			   <tbody>
+				   <tr th:each="usuario : ${cadastrados}">
+					   <td th:text="${usuario.Id_usuario}"></td>
+					   <td th:text="${usuario.nome}"></td>
+					   <td th:text="${usuario.telefone}"></td>
+					   <td th:text="${usuario.email}"></td>
+					   <td th:text="${usuario.cpf}"></td> 
+					   <td><a class="btn btn-sm btn-danger" th:href="@{excluir_usuario/{id}(id=${usuario.Id_usuario})}" >Excluir</a></td> 
+					   <td><a class="btn btn-sm btn-warning" th:href="@{alterar_usuario/{id}(id=${usuario.Id_usuario})}" >Alterar</a></td> 
+					 
+				   </tr>   
+			   </tbody>
+	</table>
+<style>
+	
+</style>
 </body>
 </html>
