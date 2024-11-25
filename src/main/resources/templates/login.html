@@ -4,6 +4,96 @@
 <head th:insert="~{layout/cabecalho}" >
 <title>Loja Belleza intima</title>
 </head>
+
+<style>
+       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+       body {
+           padding: 0;
+           margin: 0;
+           font-family: 'poppins', sans-serif;
+       }
+       .page {
+           display: flex;
+           align-items: center;
+           align-content: center;
+           justify-content: center;
+           width: 100%;
+           height: 100vh;
+           background: rgb(25,1,9);
+           background: linear-gradient(90deg, rgba(25,1,9,1) 0%, #90339a 55%, rgba(171,30,151,1) 76%, rgba(121,9,83,1) 95%);
+       }
+       .card {
+           width: 50%;
+           max-width: 450px;
+           background: rgb(202, 106, 231);
+           padding: 34px;
+           border-radius: 10px;
+           box-shadow: 0 20px 20px 0px black;
+       }
+
+       form {
+           display: flex;
+           flex-direction: column;
+           gap: 5px;
+       }
+
+       .campo {
+           padding: 10px;
+           border-radius: 4px;
+           border: 1px solid white;
+           transition: all linear 190ms;
+           font-size: 0.5cm;
+           color: #444;
+           margin-bottom: 5px;
+           outline: none;
+       }
+
+       .campo::placeholder {
+           color: #666;
+       }
+
+       .campo:focus {
+           border-color:  #c52ca4;
+       }
+
+       .btn {
+           padding: 15px;
+           color: #fff;
+           font-weight: 600;
+           border: none;
+           margin-top: 15px;
+           border-radius: 7px;
+           background-color: #862491;
+           cursor: pointer;
+           transition: all linear 190ms;
+       }
+       
+       .btn:hover {
+           transform: scale(1.04);
+           background-color: #6b1e74;
+
+       }
+
+       p {
+          font-size: 0.5cm; 
+          color: #000000;
+       }
+
+       a {
+          font-size: 0.5cm;
+          color: #720c5e;
+          text-decoration: none;
+       }
+
+       h2 {
+           font-size: 0.90cm;
+           font-weight: 600;
+           color: #1b1b1b;
+       }
+
+       </style>
+	   
 <body >
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid"> 

@@ -1,1 +1,0 @@
-https://github.com/Gomes-afk/Belleza_Intima.git
