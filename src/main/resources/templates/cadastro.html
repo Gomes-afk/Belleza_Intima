@@ -5,8 +5,78 @@
 <head th:insert="~{layout/cabecalho}">
 <title>Loja Belleza intima</title>
 </head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/produto"><h4>Belleza íntima</h4></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      <section class="home" id="home">
+        <div class="home-text container">
+            <h2 class="home-title">Cadastre-se</h2><br>
+             <h4>No lugar onde sua beleza importa.</h4>
+        </div>
+        </div>
+    </section>
 
- <style>
+
+<form name="salvar_usuario" class="form-horizontal" method="POST" th:action="@{/salvar_usuario}" th:object="${usuarioEntity}">
+	
+	<div class="alert alert-success" th:text="${mensagem}"
+	 th:if="${not #strings.isEmpty(mensagem)}"></div>
+
+			
+			<div class="mb-3">
+				<label for="nome" class="form-label">Nome</label>
+				<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome Login" required>
+			</div>
+			
+			<div class="mb-3">
+			    <label for="nome" class="form-label">Senha</label>
+			    <input type="text" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
+			</div>
+			
+			<div class="mb-3">
+				<label for="nome" class="form-label">Telefone</label>
+				<input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu numero de celular" required maxlength="12"  pattern="\d{7}-\d{4}">
+			</div>
+			
+			<div class="mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input type="email" class="form-control" id="email" name="email" placeholder="arrozcomfeijão@gmail.com" required>
+			</div>
+			
+			<div class="mb-3">
+				<label for="nome" class="form-label">CPF</label>
+				<input type="text" class="form-control" id="cpf" name="cpf"required maxlength="14" placeholder="Digite seu CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+			</div>
+			
+			<div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="submit">Cadastrar</button>
+            </div>
+</form>    
+</body>
+<style>
      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
@@ -143,131 +213,39 @@ body {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+     max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px  rgb(112, 14, 43);
+    border-radius: 5px;
 }
 
-.card {
-    width: 50%;
-    max-width: 450px;
-    background: rgb(202, 106, 231);
-    padding: 34px;
-    border-radius: 10px;
-    box-shadow: 0 20px 20px 0px black;
-    }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
 
-.campo {
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid white;
-    transition: all linear 190ms;
-    font-size: 0.5cm;
-    color: #444;
-    margin-bottom: 5px;
-    outline: none; 
-}
-
-.campo::placeholder {
-    color: #666;
-}
-
-.campo:focus {
-    border-color:  #c52ca4;
-}
-
-.btn {
-    padding: 15px;
-    color: #fff;
-    font-weight: 600;
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
     border: none;
-    margin-top: 15px;
-    border-radius: 7px;
-    background-color: #862491;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all linear 190ms;
-        
 }
 
-.btn:hover {
-    transform: scale(1.04);
-    background-color:  #6b1e74;
+button:hover {
+    background-color: rgb(0, 128, 0);
+}
+label{
+	color: white;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 
    
     </style>
-
-<body>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/produto"><h4>Belleza íntima</h4></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-<form name="salvar_usuario" class="form-horizontal" method="POST" th:action="@{/salvar_usuario}" th:object="${usuarioEntity}">
-	
-	<div class="alert alert-success" th:text="${mensagem}"
-	 th:if="${not #strings.isEmpty(mensagem)}"></div>
-
-	<div class="login-container">
-	        <h2>Cadastre-se</h2>
-			
-			<div class="mb-3">
-				<label for="nome" class="form-label">Nome</label>
-				<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome Login" required>
-			</div>
-			
-			<div class="mb-3">
-			    <label for="nome" class="form-label">Senha</label>
-			    <input type="text" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
-			</div>
-			
-			<div class="mb-3">
-				<label for="nome" class="form-label">Telefone</label>
-				<input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu Telefone" required maxlength="11">
-			</div>
-			
-			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
-				<input type="email" class="form-control" id="email" name="email" placeholder="arrozcomfeijão@gmail.com" required>
-			</div>
-			
-			<div class="mb-3">
-				<label for="nome" class="form-label">Cpf</label>
-				<input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required maxlength="11">
-			</div>
-			
-			<div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="submit">Salvar</button>
-            </div>
-
-</form>    
-
-</body>
 </html>

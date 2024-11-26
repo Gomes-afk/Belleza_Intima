@@ -36,6 +36,7 @@
            display: flex;
            flex-direction: column;
            gap: 5px;
+           border: 2px #000000;
        }
 
        .campo {
@@ -96,8 +97,8 @@
 	   
 <body >
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid"> 
-          <a class="navbar-brand" href="/produto"><h4>Belleza íntima</h4></a> 
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/produto"><h4>Belleza íntima</h4></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -109,11 +110,14 @@
               <li class="nav-item">
                 <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
-              </li>
                <li class="nav-item">
                 <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/cadastroadm"><h6>Cadastrados</h6></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/perfil"><h6>Perfil</h6></a>
               </li>
             </ul>
           </div>
@@ -121,8 +125,10 @@
       </nav>
       
       
-	<h1>Login</h1>
   <form name="login" class="form-horizontal" method="POST" th:action="@{/login}">
+	  
+	  <h1>Login</h1>
+	  
       <table>
          <tr>
             <td>User:</td>
