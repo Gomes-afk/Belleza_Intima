@@ -1,39 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
  xmlns:th="http://www.thymeleaf.org">
 <html>
 <head th:insert="~{layout/cabecalho}">
 <title>Loja Belleza intima</title>
 </head>
-
-<style>
-	body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
-    margin: 12px;
-}
-
-form {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 50px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: green;
-}
-</style>
-
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -43,11 +14,11 @@ button:hover {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			 <li class="nav-item">
+                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
+			  </li>
               <li class="nav-item">
                 <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/login"><h6>Login</h6></a>
@@ -62,49 +33,17 @@ button:hover {
           </div>
         </div>
       </nav>
-
-<form name="salvar_usuario" class="form-horizontal" method="POST" th:action="@{/salvar_usuario}" th:object="${usuarioEntity}">
-	
-	<div class="alert alert-success" th:text="${mensagem}"
-	 th:if="${not #strings.isEmpty(mensagem)}"></div>
-
-	<div class="login-container">
-	        <h2>Cadastre-se</h2>
-			
-			<div class="mb-3">
-				<label for="nome" class="form-label">Nome</label>
-				<input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome Login" required>
-			</div>
-			
-			<div class="mb-3">
-			    <label for="nome" class="form-label">Senha</label>
-			    <input type="text" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
-			</div>
-			
-			<div class="mb-3">
-				<label for="nome" class="form-label">Telefone</label>
-				<input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite seu Telefone" required maxlength="11">
-			</div>
-			
-			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
-				<input type="email" class="form-control" id="email" name="email" placeholder="arrozcomfeijão@gmail.com" required>
-			</div>
-			
-			<div class="mb-3">
-				<label for="nome" class="form-label">Cpf</label>
-				<input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required maxlength="11">
-			</div>
-			
-			<div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="submit">Salvar</button>
-            </div>
-
-</form>    
+	  
+	  <section class="home" id="home">
+	          <div class="home-text container">
+	              <h2 class="home-title">Perfil</h2><br>
+	          </div>
+	          </div>
+	      </section>
 
 
 <br>
-<h5 class="card-title">Usuarios Cadastrados</h5>
+<h4 class="card-title">Seu perfil</h4>
    <table class="table table-sm table-striped table-hover table-bordered">
 		       <thead>
 				     <tr>
@@ -113,6 +52,8 @@ button:hover {
 						  <th>TELEFONE</th>
 						  <th>EMAIL</th>
 						   <th>CPF</th>
+						   <th></th>
+						   <th></th>
 					 </tr>
 					 
 			   </thead>
@@ -129,8 +70,181 @@ button:hover {
 				   </tr>   
 			   </tbody>
 	</table>
-<style>
 	
-</style>
 </body>
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+:root {
+    --container-color: #1a1e21;
+    --second-color: #fd8f44;
+    --text-color: #172317;
+    --big-color: #fff; 
+}
+
+::selection {
+    color: var(--big-color);
+    background: var(--second-color);
+}
+
+p {
+    font-size: 0.5cm;
+    color:  #000000;
+}
+
+a {
+    font-size: 0.5cm;
+    color: #720c5e;
+    text-decoration: none;
+    }
+
+h2 {
+    font-size: 0.90cm;
+    font-weight: 600;
+    color: #1b1b1b; 
+}
+
+.container {
+    max-width: 1068px;
+    margin: auto;
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+header .shadow {
+    background: var(--big-color);
+    box-shadow: 0 1px 4px hsl(0 4% 14% / 10%);
+    transition: 0.4s;
+}
+
+header.shadow .logo {
+    color: var(--text-color);
+}
+
+body {
+    background: #FE659B;
+}
+
+.form-box.register {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--big-color);
+}
+
+.logo span {
+    color: var(--second-color);
+}
+
+.home {
+    width: 100%;
+    min-height: 440px;
+    background: var(--container-color);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-text {
+    color: var(--big-color);
+    text-align: center;
+}
+
+.home-title {
+    color: var(--big-color);
+    font-size: 3.5rem;
+}
+
+.home-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem !important;
+}
+
+.footer-container p {
+    color: aliceblue;
+    text-align: center;
+}
+
+.back-home {
+    color: var(--second-color);
+    font-size: 0.9rem;
+}
+
+form {
+     max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px  rgb(112, 14, 43);
+    border-radius: 5px;
+}
+
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 128, 0);
+}
+label{
+	color: white;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+h5 {
+	color: White ;
+}
+
+
+   
+    </style>
 </html>

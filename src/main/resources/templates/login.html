@@ -4,97 +4,6 @@
 <head th:insert="~{layout/cabecalho}" >
 <title>Loja Belleza intima</title>
 </head>
-
-<style>
-       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-       body {
-           padding: 0;
-           margin: 0;
-           font-family: 'poppins', sans-serif;
-       }
-       .page {
-           display: flex;
-           align-items: center;
-           align-content: center;
-           justify-content: center;
-           width: 100%;
-           height: 100vh;
-           background: rgb(25,1,9);
-           background: linear-gradient(90deg, rgba(25,1,9,1) 0%, #90339a 55%, rgba(171,30,151,1) 76%, rgba(121,9,83,1) 95%);
-       }
-       .card {
-           width: 50%;
-           max-width: 450px;
-           background: rgb(202, 106, 231);
-           padding: 34px;
-           border-radius: 10px;
-           box-shadow: 0 20px 20px 0px black;
-       }
-
-       form {
-           display: flex;
-           flex-direction: column;
-           gap: 5px;
-           border: 2px #000000;
-       }
-
-       .campo {
-           padding: 10px;
-           border-radius: 4px;
-           border: 1px solid white;
-           transition: all linear 190ms;
-           font-size: 0.5cm;
-           color: #444;
-           margin-bottom: 5px;
-           outline: none;
-       }
-
-       .campo::placeholder {
-           color: #666;
-       }
-
-       .campo:focus {
-           border-color:  #c52ca4;
-       }
-
-       .btn {
-           padding: 15px;
-           color: #fff;
-           font-weight: 600;
-           border: none;
-           margin-top: 15px;
-           border-radius: 7px;
-           background-color: #862491;
-           cursor: pointer;
-           transition: all linear 190ms;
-       }
-       
-       .btn:hover {
-           transform: scale(1.04);
-           background-color: #6b1e74;
-
-       }
-
-       p {
-          font-size: 0.5cm; 
-          color: #000000;
-       }
-
-       a {
-          font-size: 0.5cm;
-          color: #720c5e;
-          text-decoration: none;
-       }
-
-       h2 {
-           font-size: 0.90cm;
-           font-weight: 600;
-           color: #1b1b1b;
-       }
-
-       </style>
-	   
 <body >
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -104,45 +13,222 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+			 <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
+			</li>
               <li class="nav-item">
                 <a class="nav-link" href="/pedido"><h6>Pedido</h6></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/produto"><h6>Produtos</h6></a>
-              </li>
                <li class="nav-item">
                 <a class="nav-link" href="/cadastro"><h6>Cadastro</h6></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/cadastroadm"><h6>Cadastrados</h6></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/perfil"><h6>Perfil</h6></a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+	  
+	  <section class="home" id="home">
+	          <div class="home-text container">
+	              <h2 class="home-title">Faça seu Login</h2><br>
+	          </div>
+	          </div>
+	      </section>
       
+		  <div th:if="${param.error}" class="error-message">
+		    <p style="color:#FFFFFF";><h2>Usuário ou senha inválidos!</h2></p>
+		  </div>
       
   <form name="login" class="form-horizontal" method="POST" th:action="@{/login}">
 	  
-	  <h1>Login</h1>
-	  
       <table>
          <tr>
-            <td>User:</td>
-            <td><input type='text' name='username' value=''></td>
+            <td><h3>Login:<h3></td>
+            <td><input type='text' name='username' value='' placeholder="Digite seu CPF" required></td>
          </tr>
          <tr>
-            <td>Password:</td>
-            <td><input type='password' name='password' /></td>
+            <td><h3>Senha:</h3> </td>
+            <td><input type='password' name='password' placeholder="Digite sua senha" required /></td>
          </tr>
          <tr>
-            <td><input name="submit" type="submit" value="submit" /></td>
+            <td><input name="submit" type="submit" value="Entrar" /></td>
          </tr>
          
       </table>
   </form>
 </body>
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+:root {
+    --container-color: #1a1e21;
+    --second-color: #fd8f44;
+    --text-color: #172317;
+    --big-color: #fff; 
+}
+
+::selection {
+    color: var(--big-color);
+    background: var(--second-color);
+}
+
+p {
+    font-size: 0.5cm;
+    color:  #FFFFFF;
+}
+
+a {
+    font-size: 0.5cm;
+    color: #720c5e;
+    text-decoration: none;
+    }
+
+h2 {
+    font-size: 0.90cm;
+    font-weight: 600;
+    color: #FFFFFF; 
+}
+h3{
+	color: White ;
+}
+
+.container {
+    max-width: 1068px;
+    margin: auto;
+    width: 100%;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+header .shadow {
+    background: var(--big-color);
+    box-shadow: 0 1px 4px hsl(0 4% 14% / 10%);
+    transition: 0.4s;
+}
+
+header.shadow .logo {
+    color: var(--text-color);
+}
+
+body {
+    background: #FE659B;
+}
+
+.form-box.register {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--big-color);
+}
+
+.logo span {
+    color: var(--second-color);
+}
+
+.home {
+    width: 100%;
+    min-height: 440px;
+    background: var(--container-color);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-text {
+    color: var(--big-color);
+    text-align: center;
+}
+
+.home-title {
+    color: var(--big-color);
+    font-size: 3.5rem;
+}
+
+.home-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem !important;
+}
+
+.footer-container p {
+    color: aliceblue;
+    text-align: center;
+}
+
+.back-home {
+    color: var(--second-color);
+    font-size: 0.9rem;
+}
+
+form {
+     max-width: 400px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 10px black;
+    border-radius: 10px black;
+}
+
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(0, 128, 0);
+}
+label{
+	color: white;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+   
+    </style>
 </html>
