@@ -29,8 +29,8 @@ public class SecSecurityConfig {
 	 
 	    http.authorizeHttpRequests(
 	            auth -> auth
-	            .requestMatchers("/login", "/cadastro", "/produto", "/", "/css/**", "/js/**", "/img/**").permitAll()
-	            .requestMatchers("/pedido","/perfil").hasAnyAuthority("administrador","cliente")
+	            .requestMatchers("/login", "/cadastro","/salvar_usuario", "/produto", "/", "/css/**", "/js/**", "/img/**").permitAll()
+	            .requestMatchers("/pedido","/perfil").hasAnyAuthority("administrador","cliente","anonymousUser")
 	            .requestMatchers("/cadastroadm").hasAnyAuthority("administrador")
 	            .anyRequest().authenticated()
 	           )

@@ -1,5 +1,8 @@
 package br.com.belleza_intima.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.ui.ModelMapExtensionsKt;
 
+import br.com.belleza_intima.entity.PermissaoEntity;
 import br.com.belleza_intima.entity.UsuarioEntity;
+import br.com.belleza_intima.repository.PermissaoRepository;
 import br.com.belleza_intima.repository.UsuarioRepository;
 import ch.qos.logback.core.model.Model;
 import jakarta.servlet.http.HttpSession;
@@ -31,6 +36,9 @@ public class UsuarioController {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private PermissaoRepository permissaoRepository;
 	
 	@GetMapping("/cadastro")
 	public String usuario(ModelMap model) 
@@ -70,6 +78,12 @@ public class UsuarioController {
 		
 	
 	ModelAndView mv = new ModelAndView("redirect:/cadastro");
+	//gambiarra
+	List<Long> id = new ArrayList<>();
+	id.add(2L);
+	List<PermissaoEntity> permissoes = permissaoRepository.findAllById(id);
+	
+	usuarioEntity.setPermissoes(permissoes);
 	usuarioRepository.save(usuarioEntity);
 	/*atributes.addFlashAttribute("mensagem", docenteService.save(docenteEntity));
 	*/
