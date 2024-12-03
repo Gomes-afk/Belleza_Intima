@@ -64,7 +64,7 @@
 					   <td th:text="${usuario.telefone}"></td>
 					   <td th:text="${usuario.email}"></td>
 					   <td th:text="${usuario.cpf}"></td> 
-					   <td><a class="btn btn-sm btn-danger" th:href="@{excluir_usuario/{id}(id=${usuario.Id_usuario})}" >Excluir</a></td> 
+					   <td><a class="btn btn-sm btn-danger" th:href="@{excluir_usuario/{id}(id=${usuario.Id_usuario})}" onclick="confirm('Você tem certeza que deseja deletar ?')" >Excluir</a></td> 
 					   <td><a class="btn btn-sm btn-warning" th:href="@{alterar_usuario/{id}(id=${usuario.Id_usuario})}" >Alterar</a></td> 
 					 
 				   </tr>   

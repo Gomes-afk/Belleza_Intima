@@ -85,8 +85,7 @@ public class UsuarioController {
 	
 	usuarioEntity.setPermissoes(permissoes);
 	usuarioRepository.save(usuarioEntity);
-	/*atributes.addFlashAttribute("mensagem", docenteService.save(docenteEntity));
-	*/
+	atributes.addFlashAttribute("mensagem", "Usuário Salvo com sucesso.");
 	return mv;
 	
 	}

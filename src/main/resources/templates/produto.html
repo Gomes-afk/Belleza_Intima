@@ -42,6 +42,7 @@
         </div>
       </nav>
       
+      <form name="salvar_usuario" class="form-horizontal" method="POST" th:action="@{/salvar_usuario}" th:object="${usuarioEntity}">
       
         <section class="home" id="home">
         <div class="home-text container">
@@ -58,7 +59,7 @@
             <p class="post-description"><h4>DESCRIÇÃO:
                 Conjunto de lingerie de tule importado. Modelo sem bojo, possui aro no peito.</h4> 
                 <p>Preço: R$ 100,00</p>
-                <button class="comprar">Comprar</button>
+                <button class="comprar" type="submit">Comprar</button>
         </div>
 
     <div class="post-box cereja">
@@ -67,7 +68,7 @@
         <p class="post-description"><h4>DESCRIÇÃO:
             Calcinha com detalhes em renda, regulável.</h4></p>
             <p>Preço: R$ 100,00</p>
-            <button class="comprar">Comprar</button>
+            <button class="comprar" type="submit">Comprar</button>
     </div>
 
     <div class="post-box amor">
@@ -76,7 +77,7 @@
         <p class="post-description"><h4>DESCRIÇÃO:
             Calcinha com tule em formato coração, cavada e fio duplo atrás.</h4>
             <p>Preço: R$ 100,00</p>
-            <button class="comprar">Comprar</button>
+            <button class="comprar" type="submit">Comprar</button>
         </p>
     </div>
 
@@ -86,7 +87,7 @@
         <p class="post-description"><h4>DESCRIÇÃO:
             Conjunto sem bojo com detalhes em renda.</h4></p>
             <p>Preço: R$ 100,00</p>
-            <button class="comprar">Comprar</button>
+            <button class="comprar" type="submit">Comprar</button>
     </div>
 
     <div class="post-box ">
@@ -95,7 +96,7 @@
         <p class="post-description"><h4>DESCRIÇÃO:
             Conjunto sem bojo com detalhes em renda.</h4></p>
             <p>Preço: R$ 100,00</p>
-            <button class="comprar">Comprar</button>
+            <button class="comprar" type="submit">Comprar</button>
     </div>
 
     <div class="post-box ">
@@ -104,8 +105,10 @@
         <p class="post-description"><h4>DESCRIÇÃO:
             Conjunto sem bojo com detalhes em renda.</h4></p>
             <p>Preço: R$ 100,00</p>
-            <button class="comprar">Comprar</button>
+            <button class="comprar" type="submit">Comprar</button>
     </div>
+    </section>
+    </form>
 </section>
 
 <script src="/js/estiloproduto.js"
